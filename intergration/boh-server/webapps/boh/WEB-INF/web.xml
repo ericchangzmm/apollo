@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<!-- General -->
+	<display-name>JijeSoft Web Application</display-name>
+	<description>JijeSoft Web Application</description>
+
+	<listener>
+		<listener-class>com.jijesoft.boh.startup.LauncherContextListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.jasig.cas.client.session.SingleSignOutHttpSessionListener</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>servlet-module-container-servlet</servlet-name>
+		<servlet-class>com.jijesoft.boh.core.plugin.servlet.ServletModuleContainerServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>servlet-module-container-servlet</servlet-name>
+		<url-pattern>/service/*</url-pattern>
+		<url-pattern>/ajax/*</url-pattern>
+		<url-pattern>/report/*</url-pattern>
+	</servlet-mapping>
+
+
+	<filter>
+		<filter-name>filter-plugin-dispatcher-before-login-request</filter-name>
+		<filter-class>com.jijesoft.boh.core.plugin.servlet.filter.ServletFilterModuleContainerFilter</filter-class>
+		<init-param>
+			<param-name>location</param-name>
+			<param-value>before-login</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dispatcher</param-name>
+			<param-value>REQUEST</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>filter-plugin-dispatcher-before-login-forward</filter-name>
+		<filter-class>com.jijesoft.boh.core.plugin.servlet.filter.ServletFilterModuleContainerFilter</filter-class>
+		<init-param>
+			<param-name>location</param-name>
+			<param-value>before-login</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dispatcher</param-name>
+			<param-value>FORWARD</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>filter-plugin-dispatcher-before-login-include</filter-name>
+		<filter-class>com.jijesoft.boh.core.plugin.servlet.filter.ServletFilterModuleContainerFilter</filter-class>
+		<init-param>
+			<param-name>location</param-name>
+			<param-value>before-login</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dispatcher</param-name>
+			<param-value>INCLUDE</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>filter-plugin-dispatcher-before-login-error</filter-name>
+		<filter-class>com.jijesoft.boh.core.plugin.servlet.filter.ServletFilterModuleContainerFilter</filter-class>
+		<init-param>
+			<param-name>location</param-name>
+			<param-value>before-login</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dispatcher</param-name>
+			<param-value>ERROR</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>filter-plugin-dispatcher-before-login-request</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>filter-plugin-dispatcher-before-login-forward</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>filter-plugin-dispatcher-before-login-include</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>INCLUDE</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>filter-plugin-dispatcher-before-login-error</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>ERROR</dispatcher>
+	</filter-mapping>
+
+	<!-- session config -->
+	<session-config>
+		<session-timeout>300</session-timeout>
+	</session-config>
+
+	<!-- mime mapping -->
+	<!-- currently the W3C havent settled on a media type for WSDL; http://www.w3.org/TR/2003/WD-wsdl12-20030303/#ietf-draft 
+		for now we go with the basic 'it's XML' response -->
+	<mime-mapping>
+		<extension>wsdl</extension>
+		<mime-type>text/xml</mime-type>
+	</mime-mapping>
+
+	<mime-mapping>
+		<extension>xsd</extension>
+		<mime-type>text/xml</mime-type>
+	</mime-mapping>
+
+	<!-- welcome files -->
+	<welcome-file-list>
+		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
+	<!-- error pages -->
+	<error-page>
+		<error-code>401</error-code>
+		<location>/display-error</location>
+	</error-page>
+
+	<error-page>
+		<error-code>403</error-code>
+		<location>/display-error</location>
+	</error-page>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404page.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/500page.jsp</location>
+	</error-page>
+
+</web-app>
+    

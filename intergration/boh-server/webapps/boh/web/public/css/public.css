@@ -1,0 +1,397 @@
+
+/*日历*/
+.b-dateTime-text{
+	background:url(../images/module/b-date-text.png) right center no-repeat;
+	cursor:default;
+}
+.b-dateTime-control{
+	text-shadow:1px 1px 0 #FFF;
+	border:1px #e0e0e0 solid;
+	font-family:"Arial";
+	position:absolute;
+	border-right:none;
+	box-shadow:1px 1px 2px #888;
+	display:none;
+	-moz-user-select: none;
+}
+.b-dateTime-control .dateTime-title{
+	background:#f0f0f0;
+	height:24px;
+	line-height:24px;
+	text-align:center;
+	font-size:16px;
+	border-right:1px #e0e0e0 solid;
+	border-top:1px #fff solid;
+}
+.b-dateTime-control .dateTime-title .dLeft{
+	float:left;
+	background:url(../images/module/b-date-last.png)  center center no-repeat;
+	width:24px;
+	height:24px;
+	cursor:pointer;
+}
+.b-dateTime-control .dateTime-title .dRight{
+	float:right;
+	background:url(../images/module/b-date-next.png)  center center no-repeat;
+	width:24px;
+	height:24px;
+	cursor:pointer;
+}
+.b-dateTime-control .dateTime-content{
+	width:100%;
+	border-right:1px #e0e0e0 solid;
+}
+.b-dateTime-control .dateTime-content th{
+	background:#f0f0f0;
+	color:#999;
+	font-size:10px;
+	line-height:18px;
+}
+.b-dateTime-control .dateTime-content td{
+	background:#FFF;
+	width:28px; 
+	height:28px;
+	line-height:28px;
+	text-align:center;
+	border-top:1px #e0e0e0 solid;
+	border-right:1px #e0e0e0 solid;
+	color:#666;
+	cursor:pointer;
+}
+.b-dateTime-control .dateTime-content td:hover{
+	color:#1e90ff;
+}
+.b-dateTime-control .dateTime-content .over{
+	color:#bbb;
+}
+.b-dateTime-control .dateTime-content .today{
+	background:#fffb96;
+}
+.b-dateTime-control .dateTime-content .hiliday{
+	color:red;
+	font-family:"SimHei";
+	font-size:10px;
+}
+/*日历*/
+
+/*分页*/
+.b-mark-page{
+	width:420px;
+	margin:10px auto;
+	text-align:center;
+	height:22px;
+	background:url("../images/module/b-markPage-bg.png") 0 0 repeat-x;
+	border-radius:3px;
+	border:1px #e0e0e0 solid;
+	color:#999;
+}
+.b-mark-page span{
+	display:inline-block;	
+	padding:0 6px;
+	cursor:pointer;
+	margin:0 5px;
+	border-radius:3px;
+	line-height:18px;
+	margin-top:2px;
+}
+.b-mark-page label{
+	display:inline-block;	
+	padding:0 6px;
+	margin:1px 3px 0;
+	line-height:20px;
+}
+.b-mark-page span:hover{
+	color:#1e90ff;
+}
+.b-mark-page .at{
+	background:#bbb;
+	color:#fff;
+}
+.b-mark-page .at:hover{
+	color:#fff;
+}
+.b-mark-page .b-last{
+	float:left;
+	background:url("../images/module/b-markPage-last.png") center center no-repeat;
+	border-right:1px #ccc solid;
+	cursor:pointer;
+}
+.b-mark-page .b-next{
+	float:right;
+	background:url("../images/module/b-markPage-next.png") center center no-repeat;
+	border-left:1px #ccc solid;
+	cursor:pointer;
+}
+
+.b-mark-page .b-lastat{
+	float:left;
+	background:url("../images/module/b-markPage-lastAt.png") center center no-repeat;
+	border-right:1px #ccc solid;
+}
+.b-mark-page .b-nextat{
+	float:right;
+	background:url("../images/module/b-markPage-nextAt.png") center center no-repeat;
+	border-left:1px #ccc solid;
+}
+/*分页*/
+
+/*****滚动条样式*****/
+.b-scroll-wrapper{
+	overflow: hidden;
+	position: relative;
+	height: 200px;
+	width: 100%;
+}
+.b-scroll-scroller{
+	position: absolute;
+	min-width: 100%;
+	min-height: 100%;
+}
+.b-scroll-vscrollbarbg{
+	position: absolute; 
+	width: 10px; 
+	bottom: 0px; 
+	top: 0px; 
+	right: 1px; 
+	overflow: hidden; 
+	-moz-user-select: none;
+	opacity: 0.2;
+	filter:"alpha(opacity=20)"; 
+	background-color:#999;
+	border-left:1px #d2d2d2 solid;
+}
+.b-scroll-vscrollbar{
+	position: absolute; 
+	width: 10px; 
+	bottom: 0px; 
+	top: 0px; 
+	right: 1px; 
+	overflow: hidden; 
+	opacity: 1;
+	-moz-user-select: none;	
+}
+.b-scroll-vscrollmenu{
+	background: #FFF url('../images/module/b-vscrollmenu.png') no-repeat center;
+    height: 18px;
+    position: relative;
+    width: 8px;
+	cursor:pointer;
+	border:1px solid #cacaca;
+	border-radius:4px;
+}
+
+.b-scroll-hscrollbarbg{
+	position: absolute; 
+	height: 10px; 
+	bottom: 0; 
+	right: 0;
+	left: 0;
+	overflow: hidden; 
+	opacity: 0.7;
+	filter:"alpha(opacity=70)"; 
+	-moz-user-select: none;
+	background-color:#f7f7f7;
+}
+.b-scroll-hscrollbar{
+	position: absolute; 
+	height: 10px; 
+	bottom: 0; 
+	right: 0;
+	left: 0;
+	overflow: hidden; 
+	-moz-user-select: none;
+	border-radius:3px;
+}
+.b-scroll-hscrollmenu{
+	background: #f0f0f0 url('../images/module/b-hscrollmenu.png') no-repeat center;
+    height: 18px;
+    position: relative;
+    height: 8px;
+	border:1px solid #d7d7d7;
+	cursor:pointer;
+}
+.b-scroll-backtop{
+	background-color: #F3F3F3;
+	background: url("../images/module/b-house.png") no-repeat scroll 3px 2px #F3F3F3;
+    border: 1px solid #CCCCCC;
+    bottom: 30px;
+    color: #9A9A9A;
+    cursor: pointer;
+    padding: 20px 2px 2px;
+    position: absolute;
+    text-align: center;
+    width: 15px;
+    right: 30px;
+	line-height:16px;
+	font-family:Microsoft YaHei;
+	font-size:10px;
+}
+/*****滚动条样式*****/
+
+/*****colorbox******/
+#b-colorbox {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.4;
+    filter: alpha(opacity = 40);
+    top: 0;
+    left: 0;
+	display:none;
+	z-index:99;
+}
+#b-colorbox-main{
+	position: fixed;
+	width:0;
+	height:0;
+	overflow:hidden;
+	display:none;
+	z-index:100;
+}
+#b-colorbox-content{
+	position:relative;
+	border:1px #888 solid;
+	background:#f1f1f1;
+	box-shadow:1px 1px 4px #000;
+}
+#b-colorbox-title{
+	background:url(../images/index/flat/b-portal-title.png) 0 0 repeat-x;
+	width:100%;
+	height:24px;
+	line-height:24px;
+}
+#b-colorbox-title dt{
+	float:left;
+	font-size:14px;
+	padding-left:10px;
+	font-family:'Microsoft YaHei';
+}
+#b-colorbox-title dd{
+	float:right;
+	width:34px;
+	height:24px;
+	cursor:pointer;
+	background:url(../images/index/flat/b-title-close.png) 0 0 no-repeat;
+}
+#b-colorbox-list{	
+	padding:10px;
+}
+/*****colorbox******/
+/*****loading******/
+.b-load-page{
+	width:100%;
+	height:100%;
+	position:fixed;
+	z-index:999;
+	background:url(../images/index/flat/b-page-bg.png) 0 0 repeat;
+}
+.b-load-page .b-load-bg{	
+	width:100%;
+	height:100%;
+	background:url(../images/module/b-load-pbg.png) 0 50px no-repeat;
+}
+.b-load-page .b-load-content{
+	width:515px;
+	height:315px;
+	background:url(../images/module/b-load-logo.png) center 0 no-repeat;
+	margin:100px auto;
+	padding-top:225px;
+}
+.b-load-page .b-load-content p{
+	background:url(../images/module/b-load-cbg.png) 0 0 no-repeat;
+	width:515px;
+	height:105px;
+}
+.b-load-page .b-load-content span{	
+	background:#43bff4;
+	height:13px;
+	border-radius:5px;
+	width:1px;
+	float:left;
+	margin:53px 0 0 36px;
+}
+/*****loading******/
+/*****about******/
+#b-about-boh{
+	width:400px;
+	height:200px;
+	text-align:center;
+	font-size:12px;
+	background:#f1f1f1;
+	display:none;
+	font-family:'Microsoft YaHei';
+}
+#b-about-boh img{
+	margin:50px auto;
+}
+#b-about-boh p{
+	margin-top:30px;
+}
+#b-about-boh span{
+	float:left;
+	width:150px;
+}
+#b-about-boh a{
+	float:right;
+	font-family:'Georgia';
+	margin-right:10px;
+}
+/*****about******/
+/*****message*****/
+#b-warnMessage-plug{
+	position:fixed;
+	z-index:100;
+	border:2px #fff solid;
+	border-radius:3px;
+	background:#F1F1F1;
+	min-width:450px;
+	top:300px;
+	left:300px;	
+	font-family:Microsoft YaHei,Georgia;
+	display:none;
+}
+#b-warnMessage-plug .close{
+	background:url(../images/module/b-errmes-close.png) center top no-repeat;
+	width:29px;
+	height:22px;
+	cursor:pointer;
+	float:right;
+}
+#b-warnMessage-plug .b-warn-content{
+	width:100%;
+	text-align:center;
+	margin:40px auto;
+}
+#b-warnMessage-plug .b-warn-content span{
+	display:inline-block;
+	padding-left:43px;
+	line-height:43px;
+	height:33px;
+	background:url(../images/module/b-errmes-icon.png) 0 center no-repeat;
+}
+.btn{
+	background-color: #e0e0e0;
+    background-image: -moz-linear-gradient(center top , #F3F3F3, #C3C3C3);
+    border-bottom: 1px solid #B3B3B3;
+    box-shadow: 0 1px 2px #BBBBBB;
+    text-shadow: 0 -1px 0 #EFEFEF;
+	border-radius: 2px 2px 2px 2px;	
+    color: #666;
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    min-width: 48px;
+    padding: 0 12px;
+    text-align: center;
+	cursor:pointer;
+}
+.btn:hover{
+	background-color: #cff2f9;
+	background-image: -moz-linear-gradient(center top , #e4fbfe, #A8D7ED);
+}
+#b-warnMessage-plug .b-confirm,#b-warnMessage-plug .b-cancel{
+	float:right;
+	margin-right:10px;
+	margin-bottom:10px;
+}

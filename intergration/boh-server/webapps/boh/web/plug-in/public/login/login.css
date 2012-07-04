@@ -1,0 +1,255 @@
+
+/*****登录页面******/
+.p-login-container{
+	background:#D8D8D8;
+	background:-moz-linear-gradient(0% -90% 270deg, #D8D8D8,#FFFFFF);
+	background:-webkit-gradient(linear,0% 0%, 0% 100%, from(#D8D8D8), to(#FFFFFF));
+	height:100%;
+	border-top:4px solid #94c4e2;
+	position:relative;	
+	font-family:'Microsoft Yahei';
+}
+.p-login-content{
+	background: url("images/p-login-bgs.png") no-repeat scroll 0 -138px transparent;
+	width:798px;
+	height:483px;
+	margin:0 auto;
+	border-radius: 10px 10px 0 0;	
+}
+.p-login-top{
+	position:relative;
+}
+.p-login-logo{
+	
+}
+.p-login-language{
+	position:absolute;
+	right:30px;
+	top:20px;
+}
+.p-login-bottom{
+	background-color:#dbecf7;
+	height:25px;
+	position:fixed;
+	width:100%;
+	color:#666666;
+	text-indent:10px;
+	bottom:0;
+	font-family:Times;
+	line-height:25px;
+}
+.p-login-ch{
+	display:block;
+	float:left;
+	background: url("images/p-login-bgs.png") no-repeat scroll -300px 0 transparent;
+	color:#3f3f3f;	
+	cursor:pointer;
+	width:59px;
+	height:25px;
+	text-align:center;
+	line-height:25px;
+	margin-top:-1px;
+}
+.p-login-en{
+	display:block;
+	float:left;
+	background:url("images/p-login-bgs.png") no-repeat scroll -214px 0 transparent;
+	color:#3f3f3f;
+	cursor:pointer;
+	width:60px;
+	height:25px;
+	text-align:center;
+	line-height:25px;
+	margin-top:-1px;
+}
+.p-login-activech{
+	color:#0993c6;
+	background: url("images/p-login-bgs.png") no-repeat scroll -120px 0 transparent;
+}
+
+.p-login-activeen{
+	color:#0993c6;
+	background:url("images/p-login-bgs.png") no-repeat scroll -384px 0 transparent;
+}
+
+.p-login-logotitle{
+	display:inline-block;
+	font-size:22px;
+	height:30px;
+	margin-top:37px;	
+	position:relative;
+	z-index:1;
+	text-shadow:0px 0px 1px #333;
+}
+
+.p-login-left{
+	float:left;
+	margin:40px 0 0 40px;
+	width:400px;
+}
+.p-login-right{
+	background:#efefef;
+	background:-moz-linear-gradient(0% -90% 270deg, #efefef,#eeeeee);
+	background:-webkit-gradient(linear,0% 0%, 0% 100%, from(#efefef), to(#eeeeee));
+	width:280px;
+	min-height:232px;
+	float:right;
+	margin:40px 40px 0 0;
+	border-radius:8px;
+	border:1px solid #ffffff;
+	box-shadow:0px 2px 5px #666666;
+	padding-bottom:10px;
+}
+.p-login-righttop{
+	background: url("images/p-login-bgs.png") no-repeat scroll -474px 0 transparent;
+	padding:18px 0 0 18px;
+	font-size:14px;
+	color:#333333;
+}
+.p-login-right p{
+	margin:20px 18px 0 18px;
+	position:relative;	
+}
+.p-login-border{
+	border-bottom:1px solid #ffffff;
+}
+.p-login-right p input{
+	background-color:#f9f9f9;
+}
+.p-login-left dl{
+	height:80px;	
+}
+.p-login-left dt{
+	width:65px;
+	float:left;
+	cursor:pointer;
+}
+.p-login-left dd{
+	margin-left:80px;
+}
+.p-login-title{
+	color:#0f4780;
+	font-size:18px;	
+	padding-top:10px;
+	cursor:pointer;
+	text-shadow:0px 0px 2px #afbfc8;
+}
+.p-login-detail{
+	color:#666666;
+	font-size:12px;
+}
+.p-login-input{
+	width:100%;
+	height:30px;
+	text-indent:32px;
+	border:1px solid #d6d6d6;
+	color:#999999;
+	line-height:30px;
+}
+#p-login-username{
+	background: url("images/p-login-bgs.png") no-repeat scroll 0 -39px #F9F9F9;
+}
+#p-login-passwordText,#p-login-password{
+	background: url("images/p-login-bgs.png") no-repeat scroll 0 -86px #F9F9F9;
+}
+#p-login-password{
+	display:none;
+}
+.p-login-verify{
+	height:38px;
+	border:1px solid #e0e0e0;	
+	padding:5px 5px 0 5px;
+	display:none;
+}
+#p-login-verifyinput{
+	width:116px;
+	height:32px;
+	border:1px solid #00bfff;
+	float:left;
+	vertical-align:middle;
+	line-height:32px;
+	color:#999999;
+	text-indent:5px;
+}
+#p-login-verifyshow{
+	width:100px;
+	height:32px;
+	float:right;
+	display:inline-block;
+	text-align:center;
+	vertical-align:middle;
+	cursor:pointer;
+}
+#p-login-verifyMessage{
+    top: 40px;
+    right: 0;
+}
+.p-login-btn{
+	height:40px;
+}
+.p-login-login{
+	background:#f3f3f3;
+	background:-moz-linear-gradient(0% 0% 270deg, #FDFDFD,#FDFDFD, #F3F3F3 60%);
+	background:-webkit-gradient(linear,0% 0%, 0% 100%, from(#FDFDFD), to(#FDFDFD), color-stop(0.6,#F3F3F3));
+	display:inline-block;
+	width:88px;
+	height:33px;
+	border-radius:20px;
+	border:1px solid #dcdcdc;
+	text-align:center;
+	line-height:33px;
+	float:right;
+	vertical-align:middle;
+	cursor:pointer;
+	margin-top:20px;
+	box-shadow: 0 2px 2px #DCDCDC;
+	color:#333333;
+	font-size:12px;
+}
+.p-login-returnMessage{
+	display:none;
+	border:1px solid #e75f5f;
+	background-color:#ffe4e4;
+	text-indent:5px;
+	color:#666666;
+	margin: 20px 18px 0;
+}
+.p-login-message{
+	position:absolute;
+	right:-2px;
+	width:87%;
+	border:1px solid #e75f5f;
+	background-color:#ffe4e4;
+	z-index:2;	
+	text-indent:5px;
+	display:none;
+	top:30px;
+	color:#666666;
+}
+.p-login-toparrow{
+	background: url("images/p-login-bgs.png") no-repeat scroll 0 0 transparent;
+	display:block;
+	width:10px;
+	height:7px;
+	position:absolute;
+	top:-7px;
+	left:5px;
+}
+.p-login-rightbottom{
+	position:absolute;
+	right:10px;
+	top:0;
+}
+.p-login-rightbottom a{
+	font-size:12px;
+	color:#0066cc;
+}
+.p-login-rightbottom a:hover{
+	text-decoration:none;
+}
+.p-login-privacy{
+	margin-right:5px;
+}
+.p-login-contact{
+	margin-left:5px;
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>餐饮ERP系统  - BOH</title>
+		<!--基础base-->
+        <link href="core/base.css" rel='stylesheet' type='text/css'>
+		<!--公共组件样式-->
+        <link href="public/css/public.css" id="b-public-css" rel='stylesheet' type='text/css'>
+		<!--首页公共样式，平板模式
+		<link href="public/css/index/flat.css" rel='stylesheet' type='text/css'>
+		<script type="text/javascript" language="JavaScript" src="public/script/scroll.js"></script>-->
+		
+		<!--首页公共样式，经典模式-->
+		<link href="public/css/index/classic.css" id="b-public-css" rel='stylesheet' type='text/css'>
+		
+        <script type="text/javascript" language="JavaScript" src="core/jquery.min.js"></script>
+        <script type="text/javascript" language="JavaScript" src="core/jquery.core.js"></script>
+        <script type="text/javascript" language="JavaScript" src="core/jquery.form.js"></script>
+		<script type="text/javascript" language="JavaScript" src="core/jquery.easyui.min.js"></script>  
+        <script type="text/javascript" language="JavaScript" src="public/script/date.js"></script>      
+		<script type="text/javascript" language="JavaScript" src="public/script/fusionCharts/FusionCharts.js"></script>
+		<script type="text/javascript" language="JavaScript" src="public/script/chart.js"></script>
+		
+    </head>
+    <body>
+    <div id="page-main-content">
+        <!---->
+		<div class="b-load-page">
+            <div class="b-load-bg">
+                <div class="b-load-content">
+                    <p>
+                        <span></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="b-main-head">
+            <div class="b-logo-info">
+            </div>
+            <ul id="b-menu-one">
+            </ul>
+            <div class="b-search-col">
+                <input type="text" id="b-search-text" autocomplete="off"><span id="b-search-botton"></span>
+            </div>
+            <div class="p-user-top">
+                <span id="b-user-text" class="b-user-text"></span>
+                <span class="b-user-icon"></span>
+                <span title="Systems" class="b-user-action" id="b-user-action"></span>
+                <ul id="b-system-list">
+                </ul>
+            </div>
+        </div>
+        <div id="b-portal-parent">
+            <table class="b-portal-table">
+                <tr>
+                    <td id="b-portal-left">
+                    </td>
+                    <td id="b-portal-right">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <script type="text/javascript" src="public/script/index/classic.js" id="b-index-core"></script>
+		
+       <!--
+        <table class="b-main" >
+            <tr>
+                <td id="b-left">
+                    <div id="b-left-main">
+                        <div class="b-left-border">
+                            <div class="b-logo-info">
+                            </div>
+                            <div class="b-user-info">
+                                <div class="p-user-top">
+                                    <span class="b-user-icon"></span>
+                                    <span class="b-user-text" id="b-user-text" title=""></span>
+                                    <span id="b-user-action" class="b-user-action" title="Systems"></span>
+                                    <ul id="b-system-list">
+                                    </ul>
+                                </div>
+                                <div class="b-search-col">
+                                    <input type="text" id="b-search-text" autocomplete="off"><span id="b-search-botton"></span>
+                                </div>
+                            </div>
+                            <div class="b-menu-col">
+                                <ul class="b-menu-one" id="b-menu-one">
+                                </ul>
+                                <div class="b-menu-two" id="b-menu-two">
+                                    <div id="b-menutwo-content">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td id="b-right">
+                    <div id="b-portal-parent">
+                        <table class="b-portal-table">
+                            <tr>
+                                <td id="b-portal-left">
+                                </td>
+                                <td id="b-portal-right">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <script type="text/javascript" src="public/script/index/flat.js" id="b-index-core"></script>
+		-->
+    </div>
+	
+		
+		
+		
+		<!--应用内容-->        
+		<div id="b-Control-two">
+			<div class="b-Control-plan">
+	            <div class="b-Control-title">
+					<label></label>
+	                <p>
+	                    <span class="close"></span>
+	                </p>
+	            </div>
+	            <div class="b-Control-content"></div>
+			</div>
+        </div>
+		<div id="b-Control-one">
+            <div class="b-Control-plan">
+                <div class="b-Control-title">
+                    <strong id="b-go-history" onclick="getHistory()"></strong>
+                    <label>
+                    </label>
+                    <p>
+                        <span class="max"></span>
+                        <span class="close"></span>
+                    </p>
+                </div>
+                <div class="b-Control-content"></div>
+            </div>
+        </div>
+		<!--全屏看板-->
+		<span id="b-min-action"></span>
+		<div id="b-about-boh">
+			<img src="public/images/module/b-auout-logo.png" alt="about boh">
+			<p>
+				<span>&copy;技杰软件集团  版权所有</span><a href="http://www.jijesoft.com" target="_blank">www.jijesoft.com</a>
+			</p>
+		</div>
+		<!--信息提示-->
+		<div id="b-message-plug">			
+			<div>
+				<label>&nbsp;</label>
+				<span onclick="$.closeMessage()">X</span>
+			</div>
+		</div>
+		<!--警告提示-->
+		<div id="b-warnMessage-plug">
+			<span class="close"></span>
+			<div class="b-warn-content">
+				<span>网络无法连接，请检测网络是否正常！</span>
+			</div>
+			<div><span class="b-cancel btn">取消</span><span class="b-confirm btn">确定</span></div>
+		</div>
+    </body>	
+</html>
+
+	
+

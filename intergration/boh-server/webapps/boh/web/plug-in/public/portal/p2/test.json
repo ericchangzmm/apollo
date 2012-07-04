@@ -1,0 +1,7 @@
+<link href="plug-in/public/portal/p2/test.css" rel='stylesheet' type='text/css'>
+
+<div id="ptest1">
+
+</div>
+
+<script type="text/javascript" src="plug-in/public/portal/p2/test.js"></script>

@@ -1,0 +1,23 @@
+[
+		{
+			"id":"15",
+			"name":"库存管理1",
+			"seat":1,
+			"authority":[1,2],
+			"url":"plug-in/public/portal/p2/test.json"
+		},
+		{
+			"id":"15",
+			"name":"财务管理2",
+			"seat":2,
+			"authority":[1,2],
+			"url":"plug-in/public/portal/p1/test.json"
+		},
+		{
+			"id":"15",
+			"name":"财务管理3",
+			"seat":1,
+			"authority":[1],
+			"url":"plug-in/public/portal/p3/test.json"
+		}
+]

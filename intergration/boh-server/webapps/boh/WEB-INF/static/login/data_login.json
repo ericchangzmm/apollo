@@ -1,0 +1,5 @@
+{
+	success:false,
+	error:'username',
+	message:'用户名输入错误'
+}
