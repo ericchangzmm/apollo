@@ -1,0 +1,59 @@
+<jijesoft-plugin key="jijesoft.plugin.plugin-sso-cas"
+	name="plugin-sso-cas Plugin">
+	<plugin-info>
+		<description>plugin-sso-cas</description>
+		<version>1.0</version>
+	</plugin-info>
+
+	<component-scan base-package="com.jije.apollo" />
+
+	<!-- <properties-loader key="propertiesloader" location="ssocas/ssocas.properties" /> -->
+
+	<!-- <listener key="cas-single-signout-listener" class="org.jasig.cas.client.session.SingleSignOutHttpSessionListener"/> -->
+
+	<servlet-filter name="CAS Single Sign Out Filter"
+		key="jijesoft-cas-single-signout-Filter" class="org.jasig.cas.client.session.SingleSignOutFilter"
+		location="before-login" weight="190">
+		<description>CAS Single Sign Out Filter</description>
+		<url-pattern>/**</url-pattern>
+	</servlet-filter>
+
+	<servlet-filter name="CAS Authentication Filter"
+		key="jijesoft-cas-authentication-Filter" class="org.jasig.cas.client.authentication.AuthenticationFilter"
+		location="before-login" weight="191">
+		<description>CAS Authentication Filter</description>
+		<url-pattern>/**</url-pattern>
+		<init-param>
+			<param-name>casServerLoginUrl</param-name>
+			<param-value>https://ihelp360.com:8443/cas/login</param-value>
+		</init-param>
+		<init-param>
+			<param-name>serverName</param-name>
+			<param-value>http://172.27.100.79:9090</param-value>
+		</init-param>
+	</servlet-filter>
+
+	<servlet-filter name="CAS Ticket Validation Filter" key="jijesoft-ticket-validation-Filter"
+		class="org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter"
+		location="before-login" weight="192">
+		<description>CAS Ticket Validation Filter</description>
+		<url-pattern>/**</url-pattern>
+		<init-param>
+			<param-name>casServerUrlPrefix</param-name>
+			<param-value>https://ihelp360.com:8443/cas</param-value>
+		</init-param>
+		<init-param>
+			<param-name>serverName</param-name>
+			<param-value>http://172.27.100.79:9090</param-value>
+		</init-param>
+	</servlet-filter>
+
+	<!-- AssertionHolder.getAssertion().getPrincipal().getName() -->
+	<servlet-filter name="CAS Assertion Thread Local Filter"
+		key="jijesoft-assertion-thread-local-Filter" class="org.jasig.cas.client.util.AssertionThreadLocalFilter"
+		location="before-login" weight="193">
+		<description>CAS Assertion Thread Local Filter</description>
+		<url-pattern>/**</url-pattern>
+	</servlet-filter>
+
+</jijesoft-plugin>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="User">
+
+	<sql id="Base_Order">
+		<if test="orderString != null and orderString != ''">
+			ORDER BY ${orderString}
+		</if>
+	</sql>
+	
+	<sql id="Base_Page">
+		<include refid="Base_Order"/>
+		LIMIT #{pageOffset} , #{pageSize}
+	</sql>
+	
+	<sql id="User_Column_List">
+		id, 
+		name
+	</sql>
+	
+	<insert id="insert" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+		insert into `acct_user` (name)
+		values (#{name})
+	</insert>
+	
+	<update id="update" parameterType="User">
+		update `acct_user` set name=#{name} where id=#{id}
+	</update>
+	
+	<select id="selectById" parameterType="int" resultType="User">
+		select <include refid="User_Column_List"/>
+		from `acct_user`
+		where id=#{id}
+	</select>
+	
+	<delete id="delete" parameterType="long">
+		delete from acct_user where id=#{id}
+	</delete>
+	
+	<select id="batchSelectById" resultType="User">
+		select <include refid="User_Column_List"/>
+		from `acct_user`
+		where id in
+		<foreach collection="list" open="(" separator="," close=")" item="id">
+			#{id}
+		</foreach>
+	</select>
+	
+	<select id="count" parameterType="map" resultType="long">
+		select count(id)
+		from `acct_user`
+	</select>
+
+	<select id="select" parameterType="map" resultType="User">
+		select <include refid="User_Column_List"/>
+		from `acct_user`
+		<where>
+			<if test="name != null">
+				and name=#{name}
+			</if>
+		</where>
+		<include refid="Base_Order"/>
+	</select>
+	
+	<select id="selectPage" parameterType="map" resultType="User">
+		select <include refid="User_Column_List"/>
+		from `acct_user`
+		<include refid="Base_Page"/>
+	</select>
+
+</mapper> 

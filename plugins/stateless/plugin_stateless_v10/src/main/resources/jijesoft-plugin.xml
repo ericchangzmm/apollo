@@ -1,0 +1,41 @@
+<jijesoft-plugin key="jijesoft.plugin.plugin-stateless"
+	name="plugin-stateless Plugin">
+	<plugin-info>
+		<description>plugin-stateless</description>
+		<version>1.0</version>
+		<bundle-instructions>
+			<Import-Package>
+				com.jijesoft.core.plugin.memcached,
+				com.jijesoft.core.plugin.basecontroller.service
+			</Import-Package>
+		</bundle-instructions>
+	</plugin-info>
+
+	<component-scan base-package="com.jijesoft.core.plugin" />
+
+	<component-import key="spyMemcachedClient">
+		<interface>org.springframework.beans.factory.DisposableBean
+		</interface>
+		<interface>com.jijesoft.core.plugin.memcached.ISpyMemcachedClient
+		</interface>
+	</component-import>
+
+	<servlet-filter name="session Filter" key="jijesoftsessionFilter"
+		class="com.jijesoft.core.plugin.stateless.StatelessFilter" location="before-login"
+		weight="200">
+		<description>session Filter</description>
+		<url-pattern>/**</url-pattern>
+		<init-param>
+			<param-name>excludePatternList</param-name>
+			<param-value>^/.*\.js$,^/.*\.css$</param-value>
+		</init-param>
+		<init-param>
+			<param-name>sessionMaxage</param-name>
+			<param-value>20*60</param-value>
+		</init-param>
+	</servlet-filter>
+
+	<component key="stateless_springContextHolder"
+		class="com.jijesoft.apollo.base.spring.SpringContextHolder" />
+
+</jijesoft-plugin>

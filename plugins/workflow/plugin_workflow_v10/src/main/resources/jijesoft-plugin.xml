@@ -1,0 +1,49 @@
+<jijesoft-plugin key="jijesoft.plugin.workflow" name="workflow Plugin">
+	<plugin-info>
+		<description>workflow</description>
+		<version>1.0</version>
+		<bundle-instructions>
+			<Import-Package>
+				com.jijesoft.core.plugin.entity,
+				com.jijesoft.core.plugin.basecontroller.service
+			</Import-Package>
+			<Export-Package>
+				com.jijesoft.core.plugin.workflow.service.export
+			</Export-Package>
+		</bundle-instructions>
+	</plugin-info>
+
+	<component-scan key="components" base-package="com.jijesoft.core.plugin.workflow" />
+
+	<component-import key="dataSource" interface="javax.sql.DataSource" />
+	<component-import key="transactionManager">
+		<interface>org.springframework.transaction.support.ResourceTransactionManager
+		</interface>
+		<interface>org.springframework.beans.factory.InitializingBean
+		</interface>
+	</component-import>
+
+	<component key="processEngineConfiguration"
+		class="org.activiti.spring.SpringProcessEngineConfiguration">
+		<compent-properties>
+			<property key="dataSource" ref="dataSource" />
+			<property key="transactionManager" ref="transactionManager" />
+			<property key="databaseSchemaUpdate" value="true" />
+			<property key="jobExecutorActivate" value="false" />
+			<!-- <property key="history" value="full" /> -->
+		</compent-properties>
+	</component>
+
+	<component key="processEngine" interface="org.activiti.engine.ProcessEngine"
+		class="org.activiti.spring.ProcessEngineFactoryBean" public="true">
+		<compent-properties>
+			<property key="processEngineConfiguration" ref="processEngineConfiguration" />
+		</compent-properties>
+	</component>
+
+	<component key="workflowService"
+		class="com.jijesoft.core.plugin.workflow.WorkflowService"
+		interface="com.jijesoft.core.plugin.basecontroller.service.IOperateService"
+		public="true" />
+
+</jijesoft-plugin>

@@ -1,0 +1,40 @@
+deploy
+	http://localhost:8080/boh/workflow?act=deploy&key=leave
+流程定义列表
+	http://localhost:8080/boh/workflow?act=processList
+查看角色
+	http://localhost:8080/boh/workflowDemo?act=roleList
+新增角色
+	http://localhost:8080/boh/workflowDemo?act=roleSave&name=user
+编辑角色
+	http://localhost:8080/boh/workflowDemo?act=roleSave&name=user&id=1
+查看用户
+	http://localhost:8080/boh/workflowDemo?act=userList
+新增用户
+	http://localhost:8080/boh/workflowDemo?act=userSave&name=user&roleIds=1
+编辑用户
+	http://localhost:8080/boh/workflowDemo?act=userSave&name=user&roleIds=1&id=1
+用户登录
+	http://localhost:8080/boh/workflowDemo?act=login&username=user
+用户注销
+	http://localhost:8080/boh/workflowDemo?act=logout
+申请假单(启动流程)
+	http://localhost:8080/boh/workflow?act=startWorkflow&key=leave&userId=1&leaveType=gongxiu&reason=aabbaa&startTime=2012-06-12&endTime=2012-06-12
+运行中的流程（当前用户）
+	http://localhost:8080/boh/workflow?act=runningList&userId=1
+已结束流程（当前用户）
+	http://localhost:8080/boh/workflow?act=finishedList&userId=1
+代办事项（当前用户）
+	http://localhost:8080/boh/workflow?act=taskList&userId=1
+签收任务
+	http://localhost:8080/boh/workflow?act=claim&taskId=8&userId=1&key=leave
+部门经理审核
+	http://localhost:8080/boh/workflow?act=complete&taskId=8&keys=deptLeaderPass&values=true&types=B&key=leave
+	http://localhost:8080/boh/workflow?act=complete&taskId=408&key=leave&keys=deptLeaderPass,leaderBackReason,applyUserId&values=false,aaaaa,1&types=B,S,S
+hr审核
+	http://localhost:8080/boh/workflow?act=complete&taskId=1113&key=leave&keys=hrPass&values=true&types=B
+	http://localhost:8080/boh/workflow?act=complete&taskId=1113&key=leave&keys=hrPass,hrBackReason,applyUserId&values=false,aaa,1&types=B,S,S
+admin消假
+	http://localhost:8080/boh/workflow?act=complete&taskId=1018&key=leave&realityStartTime=2012-06-12&realityEndTime=2012-06-12
+调整假单
+	http://localhost:8080/boh/workflow?act=complete&taskId=1018&keys=reApply,leaveType,startTime,endTime,reason&values=true,tiaoxiu,2012-06-12,2012-06-12,bbbb&types=B,S,D,D,S

@@ -1,0 +1,74 @@
+<jijesoft-plugin key="jijesoft.base.dao" name="base dao"
+	plugins-version="2">
+	<plugin-info>
+		<description>jijesoft.base.dao</description>
+		<version>1.0</version>
+		<bundle-instructions>
+			<Export-Package>
+				com.jijesoft.core.plugin.entity,
+				com.jijesoft.core.plugin.mybatis,
+				com.jijesoft.core.plugin.memcached,
+				com.jijesoft.core.plugin.mapper
+			</Export-Package>
+		</bundle-instructions>
+	</plugin-info>
+	<component-scan key="components" base-package="com.jijesoft.core.plugin" />
+	<properties-loader key="propertiesloader" location="application.properties"/>
+	<component key="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		public="true" interface="javax.sql.DataSource">
+		<compent-properties>
+			<!-- Connection Info -->
+			<property key="driverClassName" value="${jdbc.driver}" />
+			<property key="url" value="${jdbc.url}" />
+			<property key="username" value="${jdbc.username}" />
+			<property key="password" value="${jdbc.password}" />
+
+			<!-- Connection Pooling Info -->
+			<property key="maxActive" value="${dbcp.maxActive}" />
+			<property key="maxIdle" value="${dbcp.maxIdle}" />
+			<property key="defaultAutoCommit" value="false" />
+
+			<property key="timeBetweenEvictionRunsMillis" value="3600000" />
+			<property key="minEvictableIdleTimeMillis" value="3600000" />
+		</compent-properties>
+	</component>
+
+	<component key="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		public="true">
+		<interface>org.springframework.transaction.support.ResourceTransactionManager
+		</interface>
+		<interface>org.springframework.beans.factory.InitializingBean
+		</interface>
+		<compent-properties>
+			<property key="dataSource" ref="dataSource" />
+		</compent-properties>
+	</component>
+	
+	<annotation-driven key="annotationdriven" transaction-manager="transactionManager"
+		proxy-target-class="true" />
+		
+	<component key="memcachedClient"
+		class="net.spy.memcached.spring.MemcachedClientFactoryBean">
+		<compent-properties>
+			<property key="servers" value="${memcached.url}" />
+			<property key="protocol" value="TEXT" />
+			<property key="locatorType" value="CONSISTENT" />
+			<property key="opTimeout" value="1000" />
+		</compent-properties>
+	</component>
+
+	<component key="spyMemcachedClient"
+		class="com.jijesoft.core.plugin.memcached.SpyMemcachedClient" public="true">
+		<interface>org.springframework.beans.factory.DisposableBean
+		</interface>
+		<interface>com.jijesoft.core.plugin.memcached.ISpyMemcachedClient
+		</interface>
+		<compent-properties>
+			<property key="memcachedClient" ref="memcachedClient" />
+			<property key="updateTimeout" value="1000" />
+			<property key="shutdownTimeout" value="1000" />
+		</compent-properties>
+	</component>
+
+</jijesoft-plugin>

@@ -1,0 +1,22 @@
+<jijesoft-plugin key="jijesoft.plugin.basecontroller"
+	name="plugin-basecontroller Plugin">
+	<plugin-info>
+		<description>plugin-basecontroller</description>
+		<version>0.0.1-SNAPSHOT</version>
+		<bundle-instructions>
+			<Export-Package>com.jijesoft.core.plugin.basecontroller.service
+			</Export-Package>
+		</bundle-instructions>
+	</plugin-info>
+	<component-scan base-package="com.jijesoft.core.plugin" />
+	<component key="operateService"
+		class="com.jijesoft.core.plugin.basecontroller.service.OperateService"
+		public="true" interface="com.jijesoft.core.plugin.basecontroller.service.IOperateService">
+	</component>
+
+	<servlet name="App Servlet" key="baseControllerServlet"
+		class="com.jijesoft.core.plugin.plugin_basecontroller.AppServlet">
+		<description>App Servlet</description>
+		<url-pattern>/*</url-pattern>
+	</servlet>
+</jijesoft-plugin>

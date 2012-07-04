@@ -1,0 +1,42 @@
+<jijesoft-plugin key="jijesoft.plugin.workflowDemo"
+	name="workflowDemo Plugin">
+	<plugin-info>
+		<description>workflowDemo</description>
+		<version>1.0</version>
+		<bundle-instructions>
+			<Import-Package>
+				com.jijesoft.core.plugin.entity,
+				com.jijesoft.core.plugin.mybatis,
+				com.jijesoft.core.plugin.basecontroller.service,
+				com.jijesoft.core.plugin.workflow.service.export
+			</Import-Package>
+		</bundle-instructions>
+	</plugin-info>
+
+	<workflow key="leave" name="请假流程" diagram="/diagrams/leave.zip"
+		class="com.jijesoft.core.plugin.workflowDemo.service.leave.LeaveService" />
+
+	<component-scan key="components"
+		base-package="com.jijesoft.core.plugin.workflowDemo" />
+
+	<component-import key="dataSource" interface="javax.sql.DataSource" />
+	<component-import key="processEngine"
+		interface="org.activiti.engine.ProcessEngine" />
+
+	<component key="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<compent-properties>
+			<property key="dataSource" ref="dataSource" />
+			<property key="configLocation" value="classpath:/mapper/Configuration.xml" />
+			<property key="mapperLocations" value="classpath:/mapper/**/*Mapper.xml" />
+		</compent-properties>
+	</component>
+
+	<component key="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+
+	<component key="workflowDemoService"
+		class="com.jijesoft.core.plugin.workflowDemo.WorkflowDemoService"
+		interface="com.jijesoft.core.plugin.basecontroller.service.IOperateService"
+		public="true" />
+
+</jijesoft-plugin>
